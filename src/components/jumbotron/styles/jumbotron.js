@@ -31,10 +31,11 @@ export const Container = styled.div`
 `;
 
 export const Pane = styled.div`
-  width: 50%;
+  /* width: 50%; */
+  padding: 0 20px;
 
   @media (max-width: 1000px) {
-    width: 100%;
+    width: 100% !important;
     padding: 0 45px;
     text-align: center;
   }
@@ -46,7 +47,7 @@ export const Title = styled.h1`
   margin-bottom: 8px;
 
   @media (max-width: 600px) {
-    font-size: 35px;
+    font-size: 1.625rem;
   }
 `;
 
