@@ -5,15 +5,20 @@ import {
   Item,
   Inner,
   Header,
+  Frame,
   Body,
 } from './styles/accordion';
 
 const ToggleContext = createContext();
 
 export default function Accordion({ children, ...restProps }) {
+  const [toggleShow, setToggleShow] = useState(0);
+
   return (
     <Container {...restProps}>
-      <Inner>{children}</Inner>
+      <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
+        <Inner>{children}</Inner>
+      </ToggleContext.Provider>
     </Container>
   );
 }
@@ -23,24 +28,19 @@ Accordion.Title = function AccordionTitle({ children, ...restProps }) {
 };
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
-  const [toggleShow, setToggleShow] = useState(false);
-
-  return (
-    <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
-      <Item {...restProps}>{children}</Item>
-    </ToggleContext.Provider>
-  );
+  return <Item {...restProps}>{children}</Item>;
 };
 
-Accordion.Header = function AccordionHeader({ children, ...restProps }) {
+Accordion.Header = function AccordionHeader({ children, id, ...restProps }) {
+  console.log(id);
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
   return (
     <Header
-      onClick={() => setToggleShow((toggleShow) => !toggleShow)}
+      onClick={() => (toggleShow === id ? setToggleShow(0) : setToggleShow(id))}
       {...restProps}>
       {children}
-      {toggleShow ? (
+      {toggleShow === id ? (
         <img src='/images/icons/close-slim.png' alt='close' />
       ) : (
         <img src='/images/icons/add.png' alt='open' />
@@ -49,8 +49,12 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   );
 };
 
-Accordion.Body = function AccordionBody({ children, ...restProps }) {
+Accordion.Body = function AccordionBody({ children, id, ...restProps }) {
   const { toggleShow } = useContext(ToggleContext);
 
-  return toggleShow ? <Body {...restProps}>{children}</Body> : null;
+  return (
+    <Body {...restProps} toggled={toggleShow === id ? true : false}>
+      <Frame>{children}</Frame>
+    </Body>
+  );
 };
