@@ -11,6 +11,10 @@ export const Inner = styled.div`
   max-width: 815px;
   width: 100%;
   margin: auto;
+
+  @media (max-width: 550px) {
+    padding: 70px 0;
+  }
 `;
 
 export const Item = styled.div`
@@ -20,6 +24,12 @@ export const Item = styled.div`
 
   &:first-of-type {
     margin-top: 3em;
+  }
+
+  @media (max-width: 550px) {
+    &:first-of-type {
+      margin-top: 1em;
+    }
   }
 `;
 
@@ -46,7 +56,7 @@ export const Header = styled.div`
   }
 
   @media (max-width: 600px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -75,8 +85,10 @@ export const Title = styled.h1`
   color: white;
   text-align: center;
 
-  @media (max-witdth: 600px) {
-    font-size: 35px;
+  @media (max-width: 550px) {
+    font-size: 1.625rem;
+    margin-left: 45px;
+    margin-right: 45px;
   }
 `;
 
