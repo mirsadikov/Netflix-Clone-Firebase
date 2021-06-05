@@ -13,13 +13,19 @@ export const Container = styled.div`
     margin-right: 20px;
     margin-left: 20px;
   }
+
+  @media (max-width: 600px) {
+    margin-top: 10px;
+  }
 `;
 
 export const Input = styled.input`
   max-width: 450px;
+  box-sizing: content-box;
+
   width: 100%;
   display: block;
-  border: 0;
+  border: 1px solid #8c8c8c;
   padding: 10px;
   height: 60px;
   box-sizing: border-box;
@@ -32,6 +38,10 @@ export const Input = styled.input`
     border-radius: 2px;
     height: 50px;
   }
+
+  @media (max-width: 550px) {
+    height: 45px;
+  }
 `;
 
 export const Button = styled.button`
@@ -40,9 +50,10 @@ export const Button = styled.button`
   height: 60px;
   background: #e50914;
   color: white;
-  padding: 0 32px;
+  padding: 0 25px;
   font-size: 26px;
   border: 0;
+  border-left: 1px solid #333;
   cursor: pointer;
   border-radius: 0;
   border-top-right-radius: 2px;
@@ -57,7 +68,13 @@ export const Button = styled.button`
     height: 50px;
     font-size: 16px;
     margin-top: 20px;
-    /* font-weight: bold; */
+    /* font-weight: 600; */
+  }
+
+  @media (max-width: 600px) {
+    height: 40px;
+    margin-top: 15px;
+    padding: 0 15px;
   }
 
   img {
@@ -79,6 +96,7 @@ export const Text = styled.p`
   @media (max-width: 600px) {
     font-size: 16px;
     line-height: 22px;
+    margin-bottom: 10px;
   }
 `;
 
