@@ -23,7 +23,7 @@ export default function SignIn() {
     //firebase work here
     firebase
       .auth()
-      .signWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password)
       .then(() => {
         // push to browse page
         history.push(ROUTES.BROWSE);
@@ -39,7 +39,7 @@ export default function SignIn() {
     <>
       <HeaderContainer>
         <Form>
-          <Form.Title>SignIn</Form.Title>
+          <Form.Title>Sign In</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignin} method='POST'>
