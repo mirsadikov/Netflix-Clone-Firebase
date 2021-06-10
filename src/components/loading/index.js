@@ -1,4 +1,4 @@
-import { Spinner, LockBody, Picture, ReleaseBody } from './styled/loading';
+import { Spinner, LockBody, Picture, ReleaseBody } from './styles/loading';
 
 export default function Loading({ src, ...restProps }) {
   return (
