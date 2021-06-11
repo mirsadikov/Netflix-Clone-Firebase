@@ -6,14 +6,21 @@ export const Background = styled.div`
   flex-direction: column;
 
   background: ${({ shadow }) =>
-      shadow &&
+      shadow ?
       `linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 0%,
       rgba(0, 0, 0, 0.5) 40%,
       rgba(0, 0, 0, 0.5) 75%,
       rgba(0, 0, 0, 0.8) 100%
-    ),`}
+    ),` : 
+    `linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(0, 0, 0, 0.5) 90%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),`
+    }
     url(${({ src }) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
     center / cover no-repeat;
 
