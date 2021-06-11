@@ -30,15 +30,55 @@ export const Container = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  height: auto;
+  max-width: ${({ extra }) => (extra ? '55%' : '100%')};
+  margin: auto;
+  display: block;
+`;
+
 export const Pane = styled.div`
   /* width: 50%; */
   padding: 0 20px;
+  position: relative;
 
   @media (max-width: 1000px) {
     width: 100% !important;
     padding: 0 45px;
     text-align: center;
   }
+
+  &::before {
+    ${({ extra }) =>
+      extra &&
+      `content: 'Downloading...';
+      display: flex;
+      align-items: center;
+      height: 15%;
+      width: 55%;
+      max-width: 380px;
+      background-color: #000;
+      z-index: 999;
+      border: 2px solid rgba(255,255,255,.25);
+      position: absolute;
+      padding: .5em .75em;
+      text-align: center;
+      box-shadow: 0 0 2em 0 #000;
+      position: absolute;
+      border-radius: .75em;
+      left: 50%;
+      bottom: 8%;
+      transform: translateX(-50%);`}
+  }
+
+  /* > ${Image}::after {
+    content: ' ';
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    z-index: 999;
+    position: absolute;
+  } */
 `;
 
 export const Title = styled.h1`
@@ -59,9 +99,4 @@ export const SubTitle = styled.h2`
   @media (max-width: 600px) {
     font-size: 18px;
   }
-`;
-
-export const Image = styled.img`
-  max-width: 100%;
-  height: auto;
 `;

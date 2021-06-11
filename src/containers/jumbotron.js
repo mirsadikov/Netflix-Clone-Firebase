@@ -10,8 +10,12 @@ export function JumbotronContainer() {
             <Jumbotron.Title>{item.title}</Jumbotron.Title>
             <Jumbotron.SubTitle>{item.subTitle}</Jumbotron.SubTitle>
           </Jumbotron.Pane>
-          <Jumbotron.Pane style={{ width: '45%' }}>
-            <Jumbotron.Image src={item.image} alt={item.alt} />
+          <Jumbotron.Pane extra={item.id === 2} style={{ width: '45%' }}>
+            <Jumbotron.Image
+              extra={item.id === 2}
+              src={item.image}
+              alt={item.alt}
+            />
           </Jumbotron.Pane>
         </Jumbotron>
       ))}
