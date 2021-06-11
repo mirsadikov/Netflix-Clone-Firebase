@@ -28,7 +28,8 @@ export const Container = styled.div`
 
 export const Group = styled.div`
   display: flex;
-  flex-direction: ${({ flexDirection }) => flexDirection === 'row' ? 'row' : 'column'};
+  flex-direction: ${({ flexDirection }) =>
+    flexDirection === 'row' ? 'row' : 'column'};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
 
@@ -63,6 +64,7 @@ export const FeatureText = styled.p`
   text-transform: capitalize;
   font-size: 18px;
   color: white;
+  user-select: none;
   font-weight: ${({ fontWeight }) =>
     fontWeight === 'bold' ? 'bold' : 'normal'};
   margin: 0;
@@ -79,12 +81,13 @@ export const Feature = styled.div`
   background-size: cover;
   position: relative;
   background-position-x: right;
+  background-position-y: center;
   background-repeat: no-repeat;
   background-color: black;
 
   @media (max-width: 1000px) {
     /* height: auto; */
-    /* background-size: auto; */
+    /* background-size: auto;  */
 
     ${Title} {
       font-size: 20px;
@@ -100,6 +103,7 @@ export const Feature = styled.div`
 
 export const FeatureTitle = styled(Title)`
   margin-left: 0;
+  user-select: none;
 `;
 
 export const FeatureClose = styled.button`
@@ -110,6 +114,7 @@ export const FeatureClose = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: 0;
+  user-select: none;
 
   img {
     filter: brightness(0) invert(1);
