@@ -13,6 +13,10 @@ export const Container = styled.div`
   padding: 60px 68px 40px;
   margin-bottom: 100px;
   box-sizing: border-box;
+
+  @media (max-width: 500px){
+    padding: 25px;
+  }
 `;
 
 export const Error = styled.div`

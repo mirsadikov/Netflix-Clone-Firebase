@@ -59,7 +59,7 @@ export default function SingUp() {
             />
             <Form.Input
               placeholder='Email address'
-              type='text'
+              type='email'
               value={email}
               onChange={({ target }) => setEmail(target.value)}
             />
